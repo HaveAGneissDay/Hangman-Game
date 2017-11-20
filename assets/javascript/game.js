@@ -26,16 +26,15 @@ function startGame() {
 
 
 //function to display the letters guessed
- document.onkeyup = function () {
- 	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
- 	console.log(userGuess)
- }
+ // document.onkeyup = function () {
+ // 	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+ // 	console.log(userGuess)
+ // }
 
 // function to replace each blank with a letter when guessed
 
 function letter() {
-  var letter = document.onkeyup = function () {
-  	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+  var letter = document.getElementById("letter").value;
  if (letter.length > 0) {
    for (var i = 0; i < wordChosen.length; i++) {
      if(wordChosen[i] === letter) {
@@ -44,47 +43,26 @@ function letter() {
    }
  }
  count++;
+ document.getElementById("guesses").innerHTML = "Guesses :" + count;
  document.getElementById("answer").innerHTML = blankArray.join(" ");
   }
 }
 
 
-
-
-
-
-
-
-
-
-
 // Counter for wins and loses
- var count = 0;
 function counterUp() {
    count+=1
    return count
 }
-
+// documentGetElementById wins = "Wins :" + count
 function counterDown() {
   count -=1;
   return count;
 }
-
+// documentGetElementById wins = "Guesses :" + count
 //function to display the number of guesses counting down
 var startingGuesses = 15;
 function numberofGuesses() {
+  letter();
   counterDown();
 }
-
-var wordChosen = arrayOfWords[Math.floor(Math.random() * arrayOfWords.length)];
-
-//function to display the letters guessed
- document.onkeyup = function () {
- 	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
- 	console.log(userGuess)
- }
-
-
-// function to replace each blank with a letter when guessed
-
-// function to choose a new word after the word is guessed or not guessed
